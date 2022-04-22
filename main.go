@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/howtri/goRate/handlers"
+	"github.com/howtri/goRateUsers/handlers"
 	_ "github.com/lib/pq"
 )
 
@@ -12,12 +12,10 @@ func main() {
 		c.File("./ui/index.html")
 	})
 
-	r.POST("/skill/add", handlers.AddSkillHandler)
-	r.POST("/skill/search", handlers.SearchSkillsHandler)
-	r.POST("/skill/rank", handlers.RankSkillHandler)
-	r.GET("/skill/:id", handlers.GetSkillHandler)
+	r.POST("/user/add", handlers.AddUserHandler)
+	r.POST("/user/verify", handlers.VerifyUserHandler)
 
-	err := r.Run(":3000")
+	err := r.Run(":3001")
 	if err != nil {
 		panic(err)
 	}
