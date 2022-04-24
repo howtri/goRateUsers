@@ -35,9 +35,9 @@ func VerifyUserHandler(c *gin.Context) {
 	err = bcrypt.CompareHashAndPassword([]byte(dbUser.PassHash), []byte(userItem.PassHash))
 	if err != nil {
 		log.Println(err)
-		c.JSON(http.StatusForbidden, "")
+		c.JSON(http.StatusForbidden, "Failed login")
 	}
-	c.JSON(statusCode, "")
+	c.JSON(statusCode, "Success")
 }
 
 func convertHTTPBodyToSkill(httpBody io.ReadCloser) (database.User, int, error) {

@@ -1,4 +1,4 @@
-module github.com/howtri/goRate
+module github.com/howtri/goRateUsers
 
 go 1.17
 
